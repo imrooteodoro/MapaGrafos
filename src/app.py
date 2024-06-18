@@ -8,7 +8,6 @@ from routes.rm_edge import *
 app = Flask(__name__, static_folder='public')
 
 
-# TODO: Implementar busca em largura, busca em profundidade e pesquisa de rotas
 edge(app)
 index_route(app)
 remove(app)
