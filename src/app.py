@@ -5,7 +5,7 @@ from routes.index import *
 from routes.remove import *
 from routes.rm_edge import *
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public')
 
 
 # TODO: Implementar busca em largura, busca em profundidade e pesquisa de rotas
