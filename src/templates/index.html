@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa do Tocantins</title>
+   
+</head>
+<body>
+    <div id="map">
+        <ul>
+            <table>
+                <tr>
+                    <th>Cidade</th>
+                    <th>Conexões</th>
+                </tr>
+                {% for city, edges in graph.items() %}
+                <tr>
+                    <td>{{ city }}</td>
+                    <td>
+                        <ul>
+                        {% for edge in edges %}
+                            <li>Conectado a {{ edge[0] }} com informações: {{ edge[1] }}</li>
+                        {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+</body>
+</html>
