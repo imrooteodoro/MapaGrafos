@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa do Tocantins</title>
     <link rel="stylesheet" href="public/styles/main.css">
-   
 </head>
 <body>
-    <div class="map">
-        <ul>
-            <table>
+    <section class="map">
+        <h2>Cidades e Conexões</h2>
+        <table>
+            <thead>
                 <tr>
-                    <th>Cidade</th>
-                    <th>Conexões</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Conexões</th>
                 </tr>
+            </thead>
+            <tbody>
                 {% for city, edges in graph.items() %}
                 <tr>
                     <td>{{ city }}</td>
                     <td>
                         <ul>
                         {% for edge in edges %}
-                            <li>Conectado a {{ edge[0] }} com informações: {{ edge[1] }}</li>
+                            <li><strong>Conectado a:</strong> {{ edge[0] }} - Informações: {{ edge[1] }}</li>
                         {% endfor %}
                         </ul>
                     </td>
                 </tr>
                 {% endfor %}
-            </table>
-    </div>
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>
