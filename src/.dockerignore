@@ -1,0 +1,11 @@
+# Ignore everything
+**
+
+# Except these files and directories
+!app.py
+!requirements.txt
+!/models/
+!/routes/
+!/controllers/
+!/templates/
+!/public/
