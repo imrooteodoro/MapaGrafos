@@ -12,18 +12,36 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Conexões</th>
+                    <th>Cidade</th>
+                    <th>Informações</th>
                 </tr>
             </thead>
             <tbody>
-                {% for city, edges in graph.items() %}
+                {% for city, info in city_info.items() %}
+                <tr>
+                    <td>{{ city }}</td>
+                    <td>{{ info }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <h3>Conexões entre Cidades</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cidade</th>
+                    <th>Conexões</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for city, connections in graph.items() %}
                 <tr>
                     <td>{{ city }}</td>
                     <td>
                         <ul>
-                        {% for edge in edges %}
-                            <li><strong>Conectado a:</strong> {{ edge[0] }} - Informações: {{ edge[1] }}</li>
+                        {% for connection, info in connections.items() %}
+                            <li>{{ connection }}: {{ info }}</li>
                         {% endfor %}
                         </ul>
                     </td>
