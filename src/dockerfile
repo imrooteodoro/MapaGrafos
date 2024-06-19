@@ -1,0 +1,24 @@
+# Use Alpine Linux
+FROM alpine:latest
+
+# Install Python and pip
+RUN apk add --no-cache python3 py3-pip
+
+# Create a virtual environment and activate it
+RUN python3 -m venv /venv
+ENV PATH="/venv/bin:$PATH"
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
