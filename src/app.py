@@ -4,6 +4,7 @@ from routes.edge import *
 from routes.index import *
 from routes.remove import *
 from routes.rm_edge import *
+from models.matrix import matrix
 
 app = Flask(__name__, static_folder='public')
 
